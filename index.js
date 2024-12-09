@@ -97,11 +97,11 @@ client.on('message', async message => {
 
         switch (userState.step) {
             case 0:
-                if (userMessage === 'konasara') {
+                if (userMessage === 'mabello') {
                     await client.sendMessage(message.from, desaImage, { caption: getWelcomeMessage() });
                     userState.step = 1;
                 } else {
-                    await message.reply('Mohon ketik "konasara" untuk memulai');
+                    await message.reply('Mohon ketik "mabello" untuk memulai');
                 }
                 break;
             case 1:
@@ -116,7 +116,7 @@ client.on('message', async message => {
             default:
                 console.error('Langkah tidak valid:', userState.step);
                 userState.step = 0;
-                await message.reply('Terjadi kesalahan. Silakan mulai ulang dengan mengetik "konasara".');
+                await message.reply('Terjadi kesalahan. Silakan mulai ulang dengan mengetik "mabello".');
         }
     } catch (error) {
         console.error('Error dalam penanganan pesan:', error);
@@ -183,7 +183,7 @@ async function handleContinueOrExit(message, userMessage, userState) {
         await client.sendMessage(message.from, desaImage, { caption: getWelcomeMessage() });
         userState.step = 1;
     } else if (userMessage === 'tidak') {
-        await message.reply('Terima kasih telah menggunakan layanan kami. Untuk memulai kembali ketik "konasara"');
+        await message.reply('Terima kasih telah menggunakan layanan kami. Untuk memulai kembali ketik "mabello"');
         userState.step = 0;
     } else {
         await message.reply('*Pilihan Salah* ⚠️\n\nKetik "YA" untuk melanjutkan\nKetik "TIDAK" untuk mengakhiri');
